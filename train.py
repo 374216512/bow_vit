@@ -110,7 +110,7 @@ def valid(args, model, writer, test_loader, global_step):
     loss_fct = torch.nn.CrossEntropyLoss()
     for step, batch in enumerate(epoch_iterator):
         batch = tuple(t.to(args.device) for t in batch)
-        x, y = batch
+        x, _, y = batch
         with torch.no_grad():
             logits = model(x)[0]
 
